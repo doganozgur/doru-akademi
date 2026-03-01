@@ -1,6 +1,14 @@
 import { Link } from 'expo-router';
 import React, { useRef, useState } from 'react';
-import { Image, NativeScrollEvent, NativeSyntheticEvent, Pressable, ScrollView, View } from 'react-native';
+import {
+  Image,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  Pressable,
+  ScrollView,
+  useWindowDimensions,
+  View
+} from 'react-native';
 
 const CAROUSEL_HEIGHT = 200; // Fixed height for consistency
 
