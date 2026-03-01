@@ -1,31 +1,31 @@
-import { StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { ActionGrid } from '../../components/ActionGrid';
+import { NewsCarousel } from '../../components/NewsCarousel';
+import { ProgressStats } from '../../components/ProgressStats';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
-
-export default function TabOneScreen() {
+export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    <SafeAreaView className="flex-1 bg-slate-50 dark:bg-slate-900">
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View className="px-4 pt-6 pb-2">
+          <Text className="text-slate-500 dark:text-slate-400 text-sm font-medium">Hoş Geldiniz,</Text>
+          <Text className="text-slate-900 dark:text-white text-3xl font-bold">Ahmet Yılmaz</Text>
+        </View>
+
+        <NewsCarousel />
+        
+        <ProgressStats />
+
+        <View className="px-4 mb-4">
+          <Text className="text-slate-900 dark:text-white text-xl font-bold mb-4">Hızlı Erişim</Text>
+          <ActionGrid />
+        </View>
+
+        {/* Ad Space Placeholder */}
+        <View className="mx-4 mb-10 p-4 bg-slate-100 dark:bg-slate-800 rounded-2xl items-center border border-dashed border-slate-300 dark:border-slate-600">
+          <Text className="text-slate-400 dark:text-slate-500 font-medium">Reklam Alanı</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
