@@ -1,11 +1,11 @@
 import { Link } from 'expo-router';
 import React, { useRef, useState } from 'react';
-import { Dimensions, Image, NativeScrollEvent, NativeSyntheticEvent, Pressable, ScrollView, View } from 'react-native';
+import { Image, NativeScrollEvent, NativeSyntheticEvent, Pressable, ScrollView, View } from 'react-native';
 
-const { width } = Dimensions.get('window');
-const CAROUSEL_HEIGHT = 280; 
+const CAROUSEL_HEIGHT = 200; // Fixed height for consistency
 
 const BANNERS = [
+// ... existing banners
   {
     id: '1',
     image: require('../assets/images/security_exam_2026_banner_wide_1772322135140.png'),
@@ -24,6 +24,7 @@ const BANNERS = [
 ];
 
 export function NewsCarousel() {
+  const { width } = useWindowDimensions();
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollViewRef = useRef<ScrollView>(null);
   const itemWidth = Math.min(width - 32, 800);
